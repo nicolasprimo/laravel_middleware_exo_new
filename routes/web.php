@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AccueilController::class, 'index'])->name('accueil');
-Route::resource('article', ArticleController::class);
+Route::resource('article', ArticleController::class)->middleware('isConnected');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
