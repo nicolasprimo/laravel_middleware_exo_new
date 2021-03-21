@@ -25,7 +25,7 @@ class ArticleFactory extends Factory
         return [
             "titre" => $faker->sentence($nbWords = 6, $variableNbWords = true),
             "texte" => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-            "user_id" => mt_rand(1, 2)
+            "user_id" => mt_rand(1,3)
         ];
     }
 }

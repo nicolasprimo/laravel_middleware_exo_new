@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'isConnected' => \App\Http\Middleware\isConnected::class,
         'RoleVerification' => \App\Http\Middleware\RoleVerification::class,
         'Admin' => \App\Http\Middleware\Admin::class,
+        'ImTheAuthor' => \App\Http\Middleware\ImTheAuthor::class,
     ];
 }

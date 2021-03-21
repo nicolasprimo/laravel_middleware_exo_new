@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RoleVerification
+class ImTheAuthor
 {
     /**
      * Handle an incoming request.
@@ -17,12 +17,10 @@ class RoleVerification
      */
     public function handle(Request $request, Closure $next)
     {
-      
-        if (Auth::check() && Auth::user()->role->name == "Webmaster" || Auth::check() && Auth::user()->role->name == "Admin" ||
-        Auth::check() && Auth::user()->role->name == "Redacteur"  ) {
+        $articleUserId = $request->route()->parameters()['article']->user_id;
+        if (Auth::user()->id ==$articleUserId || Auth::user()->role->name == 'Admin'|| Auth::user()->role->name == 'Webmaster') {
             return $next($request);
-        }else{
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 }

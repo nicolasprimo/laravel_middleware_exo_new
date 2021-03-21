@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('RoleVerification')->only('index','show');
+        $this->middleware('ImTheAuthor')->only('edit','update','delete');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -69,7 +75,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return 'cetet page n\existe pas';
     }
 
     /**

@@ -21,7 +21,7 @@ Route::get('/article', [ArticleController::class, 'indexMembre'])->name('article
 
 Route::get('/article/{article}', [ArticleController::class, 'showMembre'])->name('article.showMembre')->middleware('isConnected');
 
-Route::resource('/admin/article', ArticleController::class)->middleware('RoleVerification');
+Route::resource('/admin/article', ArticleController::class);
 Route::resource('/admin/user', UserController::class)->middleware('Admin');
 Auth::routes();
 
