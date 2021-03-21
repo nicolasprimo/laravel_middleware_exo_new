@@ -23,10 +23,16 @@ class UserSeeder extends Seeder
                 "role_id" => "1"
             ],
             [
+                "name" => "Webmaster",
+                "email" => "webmaster@email.com",
+                "password" => Hash::make('webmaster@email.com'),
+                "role_id" => "2"
+            ],
+            [
                 "name" => "Membre",
                 "email" => "membre@email.com",
                 "password" => Hash::make('membre@email.com'),
-                "role_id" => "2"
+                "role_id" => "3"
             ]
         ]);
     }

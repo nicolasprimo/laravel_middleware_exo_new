@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 Route::get('/article', [ArticleController::class, 'indexMembre'])->name('article')->middleware('isConnected');
-Route::resource('/admin/article', ArticleController::class);
+
+Route::get('/article/{article}', [ArticleController::class, 'showMembre'])->name('article.showMembre')->middleware('isConnected');
+
+Route::resource('/admin/article', ArticleController::class)->middleware('RoleVerification');
+Route::resource('/admin/user', UserController::class)->middleware('Admin');
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('RoleVerification');

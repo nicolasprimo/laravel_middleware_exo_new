@@ -2,31 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-    public function indexMembre()
-    {
-        $articles = Article::simplePaginate(5);
-        return view('article', compact('articles'));
-    }
-    public function showMembre(Article $article)
-    {
-        return view('articleShow',compact('article'));
-    }
     public function index()
     {
-        $articles= Article::simplePaginate(5);
-        return view('admin/article/indexArticleAdmin',compact('articles'));
+        $users = User::all();
+        return view('admin/users/indexUsersAdmin', compact('users'));
     }
 
     /**
@@ -36,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return 'Cette action n\'existe pas';
+        //
     }
 
     /**
@@ -53,21 +42,21 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(User $user)
     {
-        return view('admin.article.showArticleAdmin',compact('article'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit(User $user)
     {
         //
     }
@@ -76,10 +65,10 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -87,12 +76,11 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(User $user)
     {
-        $article->delete();
-        return redirect(route('article.index'));
+        //
     }
 }
