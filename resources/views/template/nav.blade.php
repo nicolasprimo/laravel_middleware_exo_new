@@ -8,7 +8,7 @@
         <a class="nav-link " href="{{route('accueil')}}">Accueil</a>
       </li>  
       <li class="nav-item {{request()->route()->uri() == "article" ? 'active' : ''}}">
-        <a class="nav-link " href="{{route('article.index')}}">Articles</a>
+        <a class="nav-link " href="{{route('article')}}">Articles</a>
       </li>  
     </ul>  
     <ul class="navbar-nav ml-auto">

@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AccueilController::class, 'index'])->name('accueil');
-Route::resource('article', ArticleController::class)->middleware('isConnected');
+Route::get('/article', [ArticleController::class, 'indexMembre'])->name('article')->middleware('isConnected');
+Route::resource('/admin/article', ArticleController::class);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('RoleVerification');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('RoleVerification');

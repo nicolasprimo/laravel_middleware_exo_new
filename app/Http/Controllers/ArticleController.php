@@ -14,9 +14,14 @@ class ArticleController extends Controller
      */
 
 
-    public function index()
+    public function indexMembre()
     {
         return view('article');
+    }
+    public function index()
+    {
+        $articles= Article::simplePaginate(5);
+        return view('admin/article/indexArticleAdmin',compact('articles'));
     }
 
     /**
@@ -26,7 +31,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return 'Cette action n\'existe pas';
     }
 
     /**
@@ -48,7 +53,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('admin.article.showArticleAdmin',compact('article'));
     }
 
     /**
@@ -82,6 +87,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect(route('article.index'));
     }
 }
