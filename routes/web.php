@@ -19,4 +19,4 @@ Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 Route::resource('article', ArticleController::class)->middleware('isConnected');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('RoleVerification');
